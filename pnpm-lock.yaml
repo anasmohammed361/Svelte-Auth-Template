@@ -7,19 +7,22 @@ settings:
 dependencies:
   '@auth/core':
     specifier: ^0.9.0
-    version: 0.9.0
+    version: 0.9.0(nodemailer@6.9.3)
   '@auth/mongodb-adapter':
     specifier: ^1.0.0
-    version: 1.0.0(mongodb@5.7.0)
+    version: 1.0.0(mongodb@5.7.0)(nodemailer@6.9.3)
   '@auth/sveltekit':
     specifier: ^0.3.5
-    version: 0.3.5(@sveltejs/kit@1.22.3)(svelte@4.0.5)
+    version: 0.3.5(@sveltejs/kit@1.22.3)(nodemailer@6.9.3)(svelte@4.0.5)
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
   mongodb:
     specifier: ^5.7.0
     version: 5.7.0
+  nodemailer:
+    specifier: ^6.9.3
+    version: 6.9.3
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -28,6 +31,9 @@ devDependencies:
   '@sveltejs/kit':
     specifier: ^1.20.4
     version: 1.22.3(svelte@4.0.5)(vite@4.4.3)
+  '@types/nodemailer':
+    specifier: ^6.4.8
+    version: 6.4.8
   svelte:
     specifier: ^4.0.5
     version: 4.0.5
@@ -53,7 +59,7 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
 
-  /@auth/core@0.8.2:
+  /@auth/core@0.8.2(nodemailer@6.9.3):
     resolution: {integrity: sha512-swqJ7tKFlqiYIl1znFGrrawUv1F6rwL+/f3DoeWDaZLnr2phiHFaZsvNvLK7WBJhnJbel78Vd3GznuR31AnFUw==}
     peerDependencies:
       nodemailer: ^6.8.0
@@ -64,12 +70,13 @@ packages:
       '@panva/hkdf': 1.1.1
       cookie: 0.5.0
       jose: 4.14.4
+      nodemailer: 6.9.3
       oauth4webapi: 2.3.0
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/core@0.9.0:
+  /@auth/core@0.9.0(nodemailer@6.9.3):
     resolution: {integrity: sha512-W2WO0WCBg1T3P8+yjQPzurTQhPv6ecBYfJ2oE3uvXPAX5ZLWAMSjKFAIa9oLZy5pwrB+YehJZPnlIxVilhrVcg==}
     peerDependencies:
       nodemailer: ^6.8.0
@@ -80,29 +87,30 @@ packages:
       '@panva/hkdf': 1.1.1
       cookie: 0.5.0
       jose: 4.14.4
+      nodemailer: 6.9.3
       oauth4webapi: 2.3.0
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/mongodb-adapter@1.0.0(mongodb@5.7.0):
+  /@auth/mongodb-adapter@1.0.0(mongodb@5.7.0)(nodemailer@6.9.3):
     resolution: {integrity: sha512-p0RSMsSqDIH/qbucfQO6asTAvNjWOLOlQ8e71ft7sCfyxw4uaHR1jgHhLl+ysLsK7G9gThJilOeOnDIePDS98g==}
     peerDependencies:
       mongodb: ^5 || ^4
     dependencies:
-      '@auth/core': 0.8.2
+      '@auth/core': 0.8.2(nodemailer@6.9.3)
       mongodb: 5.7.0
     transitivePeerDependencies:
       - nodemailer
     dev: false
 
-  /@auth/sveltekit@0.3.5(@sveltejs/kit@1.22.3)(svelte@4.0.5):
+  /@auth/sveltekit@0.3.5(@sveltejs/kit@1.22.3)(nodemailer@6.9.3)(svelte@4.0.5):
     resolution: {integrity: sha512-V76eB54YeZ2RG5Copl5ztwpOharhbouj12aP8nZPMgho087Ksq/DbsWJdyS7FTlyj8x57asopJl4gTPMXwmLxA==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
       svelte: ^3.54.0 || ^4.0.0
     dependencies:
-      '@auth/core': 0.9.0
+      '@auth/core': 0.9.0(nodemailer@6.9.3)
       '@sveltejs/kit': 1.22.3(svelte@4.0.5)(vite@4.4.3)
       svelte: 4.0.5
     transitivePeerDependencies:
@@ -418,7 +426,12 @@ packages:
 
   /@types/node@20.4.1:
     resolution: {integrity: sha512-JIzsAvJeA/5iY6Y/OxZbv1lUcc8dNSE77lb2gnBH+/PJ3lFR1Ccvgwl5JWnHAkNHcRsT0TbpVOsiMKZ1F/yyJg==}
-    dev: false
+
+  /@types/nodemailer@6.4.8:
+    resolution: {integrity: sha512-oVsJSCkqViCn8/pEu2hfjwVO+Gb3e+eTWjg3PcjeFKRItfKpKwHphQqbYmPQrlMk+op7pNNWPbsJIEthpFN/OQ==}
+    dependencies:
+      '@types/node': 20.4.1
+    dev: true
 
   /@types/pug@2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
@@ -848,6 +861,11 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nodemailer@6.9.3:
+    resolution: {integrity: sha512-fy9v3NgTzBngrMFkDsKEj0r02U7jm6XfC3b52eoNV+GCrGj+s8pt5OqhiJdWKuw51zCTdiNR/IUD1z33LIIGpg==}
+    engines: {node: '>=6.0.0'}
+    dev: false
 
   /normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
