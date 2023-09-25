@@ -1,0 +1,11 @@
+version: "3"
+services:
+  external:
+    container_name: my-bun-x
+    # The name of the image that will be created when building this container
+    image: anasmohammed361/bun-authjs-svelte
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5173:3000

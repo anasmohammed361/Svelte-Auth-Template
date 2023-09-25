@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
     import { signIn, signOut } from "@auth/sveltekit/client"
     import { page } from "$app/stores"
+  import type { PageServerData } from "./$types";
+    export let data:PageServerData
   </script>
   
   <h1>SvelteKit Auth Example</h1>
+  <p>{data?.datax}</p>
   <p>
     {#if $page.data.session}
       {#if $page.data.session.user?.image}
